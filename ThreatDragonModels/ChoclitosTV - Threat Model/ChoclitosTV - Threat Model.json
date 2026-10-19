@@ -227,8 +227,8 @@
                 "text": "Clientes"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -325,9 +325,27 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "2bba139b-7109-48ad-965c-7caace09de04",
+                  "title": "Robo de cuentas de suscriptores",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Permite entrar como otro cliente y ver sus datos",
+                  "mitigation": "Aplicar un MFA en el sistema.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": "9"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -344,8 +362,8 @@
                 "text": "Auth Mobile/web"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -442,12 +460,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "4d026de3-2831-40d5-a0db-f0c02f92f7e0",
+                  "title": "Acciones sin evidencia sobre cuentas y cobros.",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "El helpdesk modifica datos de un cliente sin registro, o un cliente niega un cargo y no hay pruebas.",
+                  "mitigation": "Registrar de forma automática e inmutable en los logs de auditoría cualquier consulta o modificación realizada por el equipo de soporte sobre los perfiles de los usuarios de ChoclitosTV.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "6"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -704,11 +744,13 @@
                 "text": "PostgreSQL"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -805,13 +847,33 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "183dde64-f817-4744-9758-2fea11a51ab9",
+                  "title": "Fuga de datos personales y credenciales",
+                  "status": "Open",
+                  "severity": "Critical",
+                  "type": "Information disclosure",
+                  "description": "Una InyecciónSQL o fallos de autorización pueden exponer el nombre, correo, dirección y hashes de contraseñas de más de 500.000 usuarios.",
+                  "mitigation": "Utilizar consultas parametrizadas para prevenir inyecciones SQL en la base de datos PostgreSQL, aplicar un estricto control de acceso basado en roles para evitar fallos",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "20"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1413,29 +1475,22 @@
               "threats": [
                 {
                   "id": "33749bd2-08dd-4a8e-85bf-63b6654c6c05",
-                  "title": "Suplantación a rol de HelpDesk",
+                  "title": "Suplantación ante el helpdesk.",
                   "status": "Open",
-                  "severity": "Critical",
+                  "severity": "Medium",
                   "type": "Spoofing",
-                  "description": "Aumento de privilegios ya que hay segregación por roles",
-                  "mitigation": "Aplicar segregación de roles y aplicar conexión mediante VPN",
+                  "description": "Un atacante se hace pasar por un cliente o roba credenciales de soporte para consultar datos.",
+                  "mitigation": "Aplicar algún método de identificación seguro.",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 1,
-                  "score": "20"
+                  "score": "6"
                 }
               ],
               "threatFrequency": {
-                "spoofing": 1,
+                "spoofing": 2,
                 "repudiation": 0
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -2566,8 +2621,8 @@
                 "text": "CI/CD"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2664,12 +2719,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "24a3fb2b-1a88-47c4-ae07-d37dd944758c",
+                  "title": "Código comprometido",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Modificar el repositorio Git o el CI/CD para introducir código malicioso en producción",
+                  "mitigation": "Registrar de forma automática e inmutable en los logs de auditoría cualquier consulta o modificación realizada por el equipo de soporte sobre los perfiles de los usuarios de ChoclitosTV.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "10"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -3040,8 +3117,8 @@
                 "text": "Servicio Suscripción"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -3137,12 +3214,34 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "3955ba90-972d-4f0d-a008-a9af326f3798",
+                  "title": "Alteración de planes y pagos.",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Cambiar parámetros en la gestión del plan o falsificar webhooks de la pasarela para no pagar.",
+                  "mitigation": "Validar estrictamente la autorización en el Subscription Service para que ningún usuario pueda alterar su nivel de suscripción directamente desde el cliente, e implementar validación criptográfica de firmas HMAC en los webhooks procedentes de la pasarela de pagos",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "12"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             },
             "zIndex": 15
           },
@@ -3519,6 +3618,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 2
+    "threatTop": 9
   }
 }
